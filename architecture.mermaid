@@ -1,0 +1,35 @@
+graph TD
+    A["👤 User asks question<br/>'How did we do last month?'"] --> B["🤖 AI Router<br/>OpenAI Function Calling"]
+    
+    B --> C{"LLM decides<br/>which tool"}
+    
+    C -->|"Data query"| D["📊 Text-to-SQL<br/>NL → SQL → Pandas"]
+    C -->|"Trends"| E["📈 Trend Analysis<br/>Z-score anomalies"]
+    C -->|"Risk"| F["⚠️ At-Risk Detection<br/>Deals + Accounts"]
+    C -->|"Compare"| G["🔄 Period Compare<br/>MoM variance"]
+    C -->|"Full report"| H["📋 Auto Report<br/>Chains all tools"]
+    
+    D --> I["🧠 RAG Context<br/>20 business rules<br/>embedded as vectors"]
+    E --> I
+    F --> I
+    G --> I
+    H --> I
+    
+    I --> J["💬 LLM Interpretation<br/>Executive narrative<br/>with exact numbers"]
+    
+    J --> K["🔒 Hallucination Guard<br/>Cross-check every number<br/>against source data"]
+    
+    K --> L["✅ Output<br/>Insight + Accuracy Score<br/>+ Generation Time"]
+    
+    style A fill:#e0e7ff,stroke:#3730a3
+    style B fill:#667eea,stroke:#4c51bf,color:#fff
+    style C fill:#fef3c7,stroke:#92400e
+    style D fill:#d1fae5,stroke:#065f46
+    style E fill:#d1fae5,stroke:#065f46
+    style F fill:#d1fae5,stroke:#065f46
+    style G fill:#d1fae5,stroke:#065f46
+    style H fill:#d1fae5,stroke:#065f46
+    style I fill:#ede9fe,stroke:#6d28d9
+    style J fill:#fce7f3,stroke:#be185d
+    style K fill:#fee2e2,stroke:#991b1b
+    style L fill:#d1fae5,stroke:#065f46
