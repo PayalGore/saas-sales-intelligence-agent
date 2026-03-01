@@ -546,7 +546,9 @@ def main():
         st.markdown("## SaaS Sales Intelligence")
         st.markdown("---")
 
-        api_key = st.text_input("🔑 OpenAI API Key", type="password", placeholder="sk-...")
+        #api_key = st.text_input("🔑 OpenAI API Key", type="password", placeholder="sk-...")
+        # Try Streamlit secrets first, then fall back to user input
+        api_key = st.secrets.get("OPENAI_API_KEY", "") or st.text_input("🔑 OpenAI API Key", type="password", placeholder="sk-...")
 
         if api_key:
             st.success("API Key loaded")
