@@ -631,6 +631,48 @@ def main():
     # Agent chat
     st.markdown("### 💬 Ask Your Sales Intelligence Agent")
 
+    # Quick-access buttons
+    st.markdown("**📌 Single-tool questions:**")
+    qcol1, qcol2, qcol3 = st.columns(3)
+    with qcol1:
+        if st.button("📊 How did we do last month?", use_container_width=True):
+            st.session_state.selected_question = "How did we do last month?"
+        if st.button("👥 Lowest win rate rep?", use_container_width=True):
+            st.session_state.selected_question = "Which rep has the lowest win rate?"
+        if st.button("⚠️ At-risk accounts?", use_container_width=True):
+            st.session_state.selected_question = "Which accounts are at risk?"
+    with qcol2:
+        if st.button("📈 Win rate trend?", use_container_width=True):
+            st.session_state.selected_question = "What is our win rate trend?"
+        if st.button("❌ Top loss reasons?", use_container_width=True):
+            st.session_state.selected_question = "What are our top loss reasons?"
+        if st.button("🔄 June vs September", use_container_width=True):
+            st.session_state.selected_question = "Compare 2025-06 vs 2025-09"
+    with qcol3:
+        if st.button("🏢 West region deals?", use_container_width=True):
+            st.session_state.selected_question = "Show me all deals in the West region"
+        if st.button("💰 Rep performance?", use_container_width=True):
+            st.session_state.selected_question = "Show me all reps ranked by win rate"
+        if st.button("📉 Slipping deals?", use_container_width=True):
+            st.session_state.selected_question = "Which deals are slipping past their expected close date?"
+
+    st.markdown("**🔗 Multi-tool questions (agent chains multiple analyses):**")
+    mcol1, mcol2 = st.columns(2)
+    with mcol1:
+        if st.button("🔍 Underperformers + loss reasons", use_container_width=True):
+            st.session_state.selected_question = "Who is underperforming on the sales team and what are the top reasons we're losing deals?"
+        if st.button("📊 Q3 dip analysis", use_container_width=True):
+            st.session_state.selected_question = "What happened to our win rate in Q3 and which reps were most affected?"
+        if st.button("🏥 Full health check", use_container_width=True):
+            st.session_state.selected_question = "Give me a full pipeline health check — at-risk deals, at-risk accounts, and current win rate trend"
+    with mcol2:
+        if st.button("🔮 Risk + bookings trend", use_container_width=True):
+            st.session_state.selected_question = "Which accounts are at risk of churning and what is our bookings trend looking like?"
+        if st.button("👥 West region deep dive", use_container_width=True):
+            st.session_state.selected_question = "How is the West region performing compared to other regions and which reps there need support?"
+        if st.button("📋 Generate weekly report", use_container_width=True):
+            st.session_state.selected_question = "Generate my weekly report"
+
     if not api_key:
         st.info("👈 Enter your OpenAI API key in the sidebar to start chatting with the agent.")
         return
