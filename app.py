@@ -435,7 +435,9 @@ def validate_response(text, tool_results):
             if any(abs(num-s)/max(s,0.01)<0.05 for s in source_nums if s>0): verified += 1
             else: unverified.append(f"{num_str}{unit}")
         except: pass
-    return round((verified/max(total,1))*100, 1), verified, total, unverified
+    #return round((verified/max(total,1))*100, 1), verified, total, unverified
+    accuracy = round((verified / total) * 100, 1) if total > 0 else 100
+    return accuracy, verified, total, unverified
 
 
 # ─────────────────────────────────────────────
