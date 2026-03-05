@@ -168,14 +168,9 @@ saas-sales-intelligence-agent/
 ├── README.md                       # This file
 ├── .streamlit/
 │   └── config.toml                 # Streamlit theme config
-├── notebook/
-│   └── kaseya_saas_sales_intelligence_agent.ipynb  # Original Colab notebook
-├── data/
-│   └── saas_sales_intelligence_data.xlsx           # Generated dataset (5 sheets)
-├── docs/
-│   └── architecture.mermaid        # Architecture diagram
-└── assets/
-    └── demo_screenshot.png         # App screenshot
+├── kaseya_saas_sales_intelligence_agent.ipynb  # Original Colab notebook
+├── saas_sales_intelligence_data.xlsx           # Generated dataset (5 sheets)
+└── architecture.mermaid        # Architecture diagram
 ```
 
 ---
